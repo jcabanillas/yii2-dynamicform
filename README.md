@@ -473,4 +473,3 @@ use wbraganca\dynamicform\DynamicFormWidget;
     <?php ActiveForm::end(); ?>
 
 </div>
-```
