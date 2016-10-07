@@ -80,6 +80,8 @@
                 $(this).prop('checked', false);
             } else if($(this).is('select')) {
                 $(this).find('option:selected').removeAttr("selected");
+            } else if ($(this).is('textarea')) {
+                $(this).html(''); 
             } else {
                 $(this).val(''); 
             }
