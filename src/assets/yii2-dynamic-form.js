@@ -466,7 +466,7 @@
                 // Fix para agregar evento que obtiene la información del producto
                 $('#' + id).on('change', function () {
                     var arr = id.split("-");
-                    if (arr[2] == "id_producto") {
+                    if (arr[2] == "id_variante") {
                         obtenerInformacionProducto(arr[0], arr[1], $('#' + id).val());
                     }
                 });
