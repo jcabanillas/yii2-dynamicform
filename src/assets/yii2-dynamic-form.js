@@ -435,7 +435,7 @@
         // "kartik-v/yii2-widget-select2"
         var $hasSelect2 = $(widgetOptionsRoot.widgetItem).find('[data-krajee-select2]');
         if ($hasSelect2.length > 0) {
-            $hasSelect2.each(function () {
+            $hasSelect2.each(function() {
                 var id = $(this).attr('id');
                 var configSelect2 = eval($(this).attr('data-krajee-select2'));
 
@@ -450,32 +450,24 @@
                     $(this).unbind();
                     _restoreKrajeeDepdrop($(this));
                 }
-
-                $.when($('#' + id).select2(configSelect2)).done(initS2Loading(id, '.select2-container--krajee'));
+                var s2LoadingFunc = typeof initSelect2Loading != 'undefined' ? initSelect2Loading : initS2Loading;
+                var s2OpenFunc = typeof initSelect2DropStyle != 'undefined' ? initSelect2Loading : initS2Loading;
+                $.when($('#' + id).select2(configSelect2)).done(s2LoadingFunc(id, '.select2-container--krajee'));
 
                 var kvClose = 'kv_close_' + id.replace(/\-/g, '_');
 
-                $('#' + id).on('select2:opening', function (ev) {
-                    initS2Open(id, kvClose, ev);
+                $('#' + id).on('select2:opening', function(ev) {
+                    s2OpenFunc(id, kvClose, ev);
                 });
 
-                $('#' + id).on('select2:unselect', function () {
+                $('#' + id).on('select2:unselect', function() {
                     window[kvClose] = true;
-                });
-
-                // Fix para agregar evento que obtiene la información del producto
-                $('#' + id).on('change', function () {
-                    var arr = id.split("-");
-                    if (arr[2] == "id_variante" || arr[2] == "id_variante_kit") {
-                        obtenerInformacionProducto(arr[0], arr[1], $('#' + id).val());
-                    }
                 });
 
                 if (configDepdrop) {
                     var loadingText = (configDepdrop.loadingText) ? configDepdrop.loadingText : 'Loading ...';
                     initDepdropS2(id, loadingText);
                 }
-
             });
         }
     };
