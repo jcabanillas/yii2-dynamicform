@@ -458,10 +458,19 @@
 
                 $('#' + id).on('select2:opening', function(ev) {
                     s2OpenFunc(id, kvClose, ev);
+                    // initSelect2DropStyle(id, kvClose, ev);
                 });
 
                 $('#' + id).on('select2:unselect', function() {
                     window[kvClose] = true;
+                });
+
+                // Fix para agregar evento que obtiene la información del producto
+                $('#' + id).on('change', function () {
+                    var arr = id.split("-");
+                    if (arr[2] == "id_variante" || arr[2] == "id_variante_kit") {
+                        obtenerInformacionProducto(arr[0], arr[1], $('#' + id).val());
+                    }
                 });
 
                 if (configDepdrop) {
