@@ -335,6 +335,10 @@
     var _restoreSpecialJs = function (widgetOptions) {
         var widgetOptionsRoot = _getWidgetOptionsRoot(widgetOptions);
 
+        $( ".picker" ).each(function() {
+            $( this ).datepicker();
+        });
+
         // "jquery.inputmask"
         var $hasInputmask = $(widgetOptionsRoot.widgetItem).find('[data-plugin-inputmask]');
         if ($hasInputmask.length > 0) {
