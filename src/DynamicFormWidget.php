@@ -1,7 +1,7 @@
 <?php
 /**
  * @link      https://github.com/jcabanillas/yii2-dynamicform
- * @copyright Copyright (c) 2016 Javier Cabanillas
+ * @copyright Copyright (c) 2014 Wanderson Bragança
  * @license   https://github.com/jcabanillas/yii2-dynamicform/blob/master/LICENSE
  */
 
@@ -16,7 +16,7 @@ use Symfony\Component\DomCrawler\Crawler;
 /**
  * yii2-dynamicform is widget to yii2 framework to clone form elements in a nested manner, maintaining accessibility.
  *
- * @author Javier Cabanillas <jcabanillas@bitevolution.net>
+ * @author Wanderson Bragança <wanderson.wbc@gmail.com>
  */
 class DynamicFormWidget extends \yii\base\Widget
 {
@@ -216,9 +216,7 @@ class DynamicFormWidget extends \yii\base\Widget
         $js .= "});\n";
         $view->registerJs($js, $view::POS_READY);
 
-        // $js = 'jQuery("#' . $this->formId . '").yiiDynamicForm(' . $this->_hashVar .');' . "\n";
-        // $view->registerJs($js, $view::POS_LOAD);
-        $js = 'jQuery("#' . $this->formId . '").on(\'afterInit\', function () {jQuery("#' . $this->formId . '").yiiDynamicForm(' . $this->_hashVar .');});' . "\n";
+        $js = 'jQuery("#' . $this->formId . '").yiiDynamicForm(' . $this->_hashVar .');' . "\n";
         $view->registerJs($js, $view::POS_LOAD);
     }
 

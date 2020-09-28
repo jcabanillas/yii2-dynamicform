@@ -1,7 +1,7 @@
 <?php
 /**
  * @link      https://github.com/jcabanillas/yii2-dynamicform
- * @copyright Copyright (c) 2016 Javier Cabanillas
+ * @copyright Copyright (c) 2014 Wanderson Bragança
  * @license   https://github.com/jcabanillas/yii2-dynamicform/blob/master/LICENSE
  */
 
@@ -10,7 +10,7 @@ namespace jcabanillas\dynamicform;
 /**
  * Asset bundle for dynamicform Widget
  *
- * @author Javier Cabanillas <jcabanillas@bitevolution.net>
+ * @author Wanderson Bragança <wanderson.wbc@gmail.com>
  */
 class DynamicFormAsset extends \yii\web\AssetBundle
 {
@@ -36,8 +36,7 @@ class DynamicFormAsset extends \yii\web\AssetBundle
             $minFiles[] = "{$file}.min.{$type}";
         }
         if (empty($this->$type)) {
-            // $this->$type = YII_DEBUG ? $srcFiles : $minFiles;
-            $this->$type = $srcFiles;
+            $this->$type = YII_DEBUG ? $srcFiles : $minFiles;
         }
     }
 

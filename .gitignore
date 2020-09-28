@@ -1,43 +1,27 @@
-# yii console command
-/yii
+build
+docs
+vendor
 
-# phpstorm project files
+# cache directories
+Thumbs.db
+*.DS_Store
+*.empty
+
+#phpstorm project files
 .idea
 
-# netbeans project files
+#netbeans project files
 nbproject
 
-# zend studio for eclipse project files
+#eclipse, zend studio, aptana or other eclipse like project files
 .buildpath
 .project
 .settings
 
-# windows thumbnail cache
-Thumbs.db
-
-# composer vendor dir
-/vendor
-
 # composer itself is not needed
 composer.phar
-
-# Mac DS_Store Files
-.DS_Store
-
-# phpunit itself is not needed
-phpunit.phar
-# local phpunit config
-/phpunit.xml
-
-# vagrant runtime
-/.vagrant
-
-# For us
-/web/assets/ 
-/runtime/ 
-/tests/
-/vendor/
-/nbproject/
-auth.json
-/backend/config/db.php
 composer.lock
+
+# mac deployment helpers
+switch
+index
